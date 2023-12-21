@@ -25,6 +25,9 @@ update_compile_order -fileset sources_1
 
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
 add_files -fileset sim_1 -norecurse ../verif/tb.vhd
+add_files -fileset sim_1 -norecurse ../verif/voter_tb.vhd
+add_files -fileset sim_1 -norecurse ../verif/comparator_tb.vhd
+
 
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1

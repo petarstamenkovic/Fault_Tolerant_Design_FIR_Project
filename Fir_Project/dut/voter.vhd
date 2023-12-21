@@ -13,23 +13,25 @@ entity voter is
 end voter;
 
 architecture Behavioral of voter is
-    --signal temp : std_logic_vector(output_data_width-1 downto 0);
     type cnt_array is array (0 to NUM_INPUT) of integer;
     signal cnt : cnt_array;
-    signal flag: std_logic;
 begin
 
 -- Every input compares with each other creating an array
 -- Highest value in array represents which an input that has most matches
-process(in1,cnt)
+process(in1)
     variable cnt_v : cnt_array := (others => 0);
 begin
 for i in 0 to NUM_INPUT-1 loop
     for j in 0 to NUM_INPUT-1 loop
         if(i /= j) then 
             if(in1(i) = in1(j)) then
-                cnt_v(i) := cnt_v(i) + 1;
-            end if;    
+                cnt_v(i) := cnt_v(i) + 1;   -- cnt_v should also be in else branch
+            else 
+                cnt_v(i) := cnt_v(i);    
+            end if; 
+        else 
+            cnt_v(i) := cnt_v(i);       
         end if;
     end loop;
 end loop;    
@@ -41,27 +43,17 @@ end process;
 process(cnt) 
     variable max : integer := cnt(0);
     variable index : integer := 0;
-    variable k : integer := 0;
 begin
    for k in 1 to NUM_INPUT loop
         if(cnt(k) > max) then 
             max := cnt(k);
             index := k;
-         end if;                
+        else 
+            max := max;
+            index := index;     
+        end if;                
     end loop;
-    out1 <= in1(k);
+    out1 <= in1(index);
 end process;
-
-
---process(in1) begin
---for i in 0 to output_data_width-1 loop
---    for j in 0 to NUM_INPUT-1 loop 
---        for s in j+1 to NUM_INPUT loop  
---            temp <= in1(j)(i) and in1(s)(i);
---            out1(i) <=  or temp;
---        end loop;  
---    end loop;
---end loop;    
---end process;
 
 end Behavioral;
