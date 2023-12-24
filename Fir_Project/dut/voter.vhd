@@ -14,7 +14,7 @@ end voter;
 
 architecture Behavioral of voter is
     type cnt_array is array (0 to NUM_INPUT) of integer;
-    signal cnt : cnt_array;
+    signal cnt : cnt_array := (others => 0);
 begin
 
 -- Every input compares with each other creating an array
