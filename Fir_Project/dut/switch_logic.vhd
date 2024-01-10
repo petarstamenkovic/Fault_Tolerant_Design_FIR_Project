@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 use work.variable_io_package.all;
 
 entity switch_logic is
@@ -21,53 +22,99 @@ architecture Behavioral of switch_logic is
     signal used_modules: std_logic_vector(NUM_MODULAR-1 downto 0) := (others => '0');
 	-- Signal used for zero comparison
     signal zero_vector : std_logic_vector(NUM_MODULAR-1 downto 0) := (others => '0');
-    signal flag: std_logic:= '0';
+    
+    -- Helping out signal
+    signal out_help : IO_ARRAY(NUM_MODULAR-1 downto 0);
+    signal cnt: std_logic_vector(2 downto 0) := "000" ; -- Adapt this later on
 begin
 
-process(in1,in2,comp_out) 
-begin  
-        if(used_modules /= zero_vector) then 
-            for j in 0 to NUM_MODULAR-1 loop
-                if(used_modules(j) = '1') then 
-                    out1(j) <= in2(spare_check(used_spares));
+process(comp_out,in1,in2)
+begin
+    if(comp_out /= zero_vector) then
+        for i in 0 to NUM_MODULAR-1 loop
+            if(comp_out(i) = '1') then 
+                used_modules(i) <= '1';
+                cnt <= std_logic_vector(unsigned(cnt) + to_unsigned(1,3));
+                out_help(i) <= in2(to_integer(unsigned(cnt)));
+                out1(i) <= out_help(i);
+            else 
+                if(used_modules(i) = '0') then 
+                    out_help(i) <= in1(i);
+                    out1(i) <= out_help(i);
                 else 
-                    out1(j) <= in1(j);
-                end if; 
+                    out_help(i) <= in2(to_integer(unsigned(cnt)));
+                    out1(i) <= out_help(i);
+                end if;
+            end if;          
+        end loop;
+    else
+        if(used_modules /= zero_vector) then
+            for i in 0 to NUM_MODULAR-1 loop
+               out1(i) <= out_help(i);
             end loop;
         else 
-            for i in 0 to NUM_MODULAR-1 loop
-              out1(i) <= in1(i);
-            end loop;     
-        end if;  
+             for i in 0 to NUM_MODULAR-1 loop
+                out1(i) <= in1(i);
+             end loop;
+        end if;    
+    end if;    
 end process;
 
-component_setting :                            -- This process updates the used_modules signal
-process(comp_out) 
-        --variable fail : integer := 0;
-begin
-		-- Find the error('1' : the failed component) and store that index in "fail" variable
-        for j in 0 to NUM_MODULAR-1 loop
-            if(comp_out(j) = '1') then 
-          --      fail := j;
-                used_modules(j) <= '1';     -- Mark a module that failed
-                flag <= '1';
-            else 
-                --fail := fail;
-                used_modules(j) <= '0';
-                flag <= '0';      
-            end if;
-        end loop;
-end process;
 
-spare_setting:
-process(flag)
-begin 
-        -- Are there spares availlable?
-        if(spare_check(comp_out) /= NUM_SPARES and flag = '1') then    -- Flag detects a fault in a component, change and activate a spare
-            used_spares(spare_check(used_spares)) <= '1';
-        else 
-            used_spares(spare_check(used_spares)) <= '0';
-        end if;
-end process;
+--process(in1,in2,comp_out) 
+--begin  
+--        if(used_modules /= zero_vector) then 
+--            for j in 0 to NUM_MODULAR-1 loop
+--                if(used_modules(j) = '1') then 
+--                    out_help(j) <= in2(spare_check(used_spares));
+--                else 
+--                    out_help(j) <= in1(j);
+--                end if; 
+--            end loop;
+--        else  -- Scenario in which all modules are availlable                   
+--            for i in 0 to NUM_MODULAR-1 loop
+--              out_help(i) <= in1(i);
+--            end loop;     
+--        end if;  
+        
+--        for i in 0 to NUM_MODULAR-1 loop
+--            out1(i) <= out_help(i);
+--        end loop;
+        
+--end process;
 
+--update_component_availlability :           
+--process(comp_out)      
+--begin
+--        if(comp_out /= zero_vector) then
+--            for j in 0 to NUM_MODULAR-1 loop
+--                if(comp_out(j) = '1') then 
+--                    if(used_modules(j) = '1') then 
+--                        used_modules(j) <= '1';
+--                    else 
+--                        used_modules(j) <= '1';
+--                    end if; 
+--                else 
+--                    if(used_modules(j) = '1') then
+--                        used_modules(j) <= '1';
+--                    else     
+--                        used_modules(j) <= '0';    
+--                    end if;     
+--                end if;
+--            end loop;
+--            used_spares(spare_check(used_spares)) <= '1';                          
+
+--         else  -- Comp out is 0 which means no errors, dont change used_modules
+--            used_modules <= used_modules;
+--            used_spares <= used_spares;
+--         end if;   
+--end process;
+
+--supply_to_out : 
+--process(out_help)
+--begin 
+--   for i in 0 to NUM_MODULAR-1 loop
+--        out1(i) <= out_help(i);
+--    end loop;
+--end process;
 end Behavioral;

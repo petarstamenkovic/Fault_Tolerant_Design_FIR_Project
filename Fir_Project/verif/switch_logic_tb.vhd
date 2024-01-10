@@ -33,14 +33,14 @@ port map(
 
 stim_gen:
 process begin
-    in1_s(0) <= std_logic_vector(to_unsigned(5,24)), std_logic_vector(to_unsigned(1,24)) after 100ns, std_logic_vector(to_unsigned(8,24)) after 200ns;
-    in1_s(1) <= std_logic_vector(to_unsigned(4,24)), std_logic_vector(to_unsigned(2,24)) after 100ns, std_logic_vector(to_unsigned(7,24)) after 200ns;
-    in1_s(2) <= std_logic_vector(to_unsigned(3,24)), std_logic_vector(to_unsigned(3,24)) after 100ns, std_logic_vector(to_unsigned(6,24)) after 200ns;
-    in1_s(3) <= std_logic_vector(to_unsigned(2,24)), std_logic_vector(to_unsigned(4,24)) after 100ns, std_logic_vector(to_unsigned(5,24)) after 200ns;
-    in2_s(0) <= std_logic_vector(to_unsigned(1,24)), std_logic_vector(to_unsigned(5,24)) after 100ns, std_logic_vector(to_unsigned(4,24)) after 200ns;
-    in2_s(1) <= std_logic_vector(to_unsigned(17,24)), std_logic_vector(to_unsigned(9,24)) after 100ns, std_logic_vector(to_unsigned(1,24)) after 200ns;
-    in2_s(2) <= std_logic_vector(to_unsigned(7,24)), std_logic_vector(to_unsigned(8,24)) after 100ns, std_logic_vector(to_unsigned(3,24)) after 200ns;
-    comp_out_s <= "0010" , "0000" after 100ns, "0100" after 200ns;
+    in1_s(0) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(5,24)) after 100ns, std_logic_vector(to_unsigned(5,24)) after 200ns, std_logic_vector(to_unsigned(8,24)) after 300ns;
+    in1_s(1) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(4,24)) after 100ns, std_logic_vector(to_unsigned(4,24)) after 200ns, std_logic_vector(to_unsigned(8,24)) after 300ns;
+    in1_s(2) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(5,24)) after 100ns, std_logic_vector(to_unsigned(5,24)) after 200ns, std_logic_vector(to_unsigned(6,24)) after 300ns;
+    in1_s(3) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(5,24)) after 100ns, std_logic_vector(to_unsigned(5,24)) after 200ns, std_logic_vector(to_unsigned(8,24)) after 300ns;
+    in2_s(0) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(5,24)) after 100ns, std_logic_vector(to_unsigned(5,24)) after 200ns, std_logic_vector(to_unsigned(1,24)) after 300ns;
+    in2_s(1) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(1,24)) after 100ns, std_logic_vector(to_unsigned(1,24)) after 200ns, std_logic_vector(to_unsigned(8,24)) after 300ns;
+    in2_s(2) <= std_logic_vector(to_unsigned(5,24)),std_logic_vector(to_unsigned(1,24)) after 100ns, std_logic_vector(to_unsigned(1,24)) after 200ns, std_logic_vector(to_unsigned(1,24)) after 300ns;
+    comp_out_s <= "0000", "0010" after 100ns, "0000" after 200ns, "0100" after 300ns;
     wait;
 end process;
 

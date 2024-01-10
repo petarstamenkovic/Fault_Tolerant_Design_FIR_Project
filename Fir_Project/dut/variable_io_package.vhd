@@ -7,12 +7,13 @@ package variable_io_package is
     constant output_width : integer := 24;
     constant NUM_SPARES : integer := 3;
     type IO_ARRAY is array (integer range <>) of std_logic_vector(output_width-1 downto 0);
+    type COMP_OUT_TYPE is array (integer range <>) of std_logic;
     function spare_check(input_array : std_logic_vector) return integer;
 end variable_io_package;
 
 package body variable_io_package is 
     function spare_check(input_array : std_logic_vector) return integer is 
-        variable index : integer;
+        variable index : integer := 0;
     begin
         if(input_array = std_logic_vector(to_unsigned(1,NUM_SPARES))) then
             index := NUM_SPARES;

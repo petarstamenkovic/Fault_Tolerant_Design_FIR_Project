@@ -12,7 +12,7 @@ end comparator_tb;
 architecture Behavioral of comparator_tb is
     signal in1_s : IO_ARRAY(NUM_MODULAR-1 downto 0);
     signal vot_out_s : std_logic_vector(output_data_width-1 downto 0);
-    signal comp_out_s : std_logic_vector(NUM_MODULAR-1 downto 0);
+    signal comp_out_s : COMP_OUT_TYPE(NUM_MODULAR-1 downto 0);
 begin
 
 comparator_instance : 
