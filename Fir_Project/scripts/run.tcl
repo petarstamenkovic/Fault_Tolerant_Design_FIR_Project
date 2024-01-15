@@ -20,6 +20,7 @@ add_files -norecurse ../dut/mac.vhd
 add_files -norecurse ../dut/mac.vhd
 add_files -norecurse ../dut/txt_util.vhd
 add_files -norecurse ../dut/util_pkg.vhd
+add_files -norecurse ../dut/param_mux.vhd
 
 update_compile_order -fileset sources_1
 
@@ -28,6 +29,7 @@ add_files -fileset sim_1 -norecurse ../verif/tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/voter_tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/comparator_tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/switch_logic_tb.vhd
+add_files -fileset sim_1 -norecurse ../verif/param_mux_tb.vhd
 
 
 update_compile_order -fileset sources_1
