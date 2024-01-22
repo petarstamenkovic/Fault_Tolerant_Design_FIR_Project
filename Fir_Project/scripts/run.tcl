@@ -31,6 +31,9 @@ add_files -fileset sim_1 -norecurse ../verif/voter_tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/comparator_tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/switch_logic_tb.vhd
 
+set_property top top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+
 
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
