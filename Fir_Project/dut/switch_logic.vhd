@@ -21,7 +21,7 @@ architecture Behavioral of switch_logic is
     signal sel_zero : std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0):= (others => '0');
     type SEL_TYPE is array(NUM_MODULAR-1 downto 0) of std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0);
     signal sel : SEL_TYPE := (others => (others => '0'));
-    signal cnt: std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0) := (others => '0');
+    signal fail : std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0):= (others => '0');
 begin
 
 mux_generation:
@@ -35,6 +35,7 @@ begin
                 for j in 1 to NUM_SPARES loop
                 if(sel(i) = std_logic_vector(to_unsigned(j,2))) then
                     out1(i) <= in2(j-1);
+                    --exit;
                 end if;
                 end loop;
            end if;     
@@ -42,19 +43,19 @@ begin
 end process;
 
 failing_mechanism:
-process(comp_out) 
+process(comp_out)
+    variable fail : integer := 0; 
 begin 
    -- sel <= (others => (others => '0'));
-  
     for k in 0 to NUM_MODULAR-1 loop
-   -- cnt <= cnt;
     --sel(k) <= sel(k); 
         if(comp_out(k) = '1') then
-            sel(k) <= std_logic_vector(unsigned(sel(k)) + to_unsigned(1,log2c(NUM_SPARES+1)));
-            --sel(k) <= cnt; -- sel ne dobija vrednost kada i cnt
-            exit;   
+            fail := fail + 1;
+            --fail <= std_logic_vector(unsigned(fail) + TO_UNSIGNED(1,log2c(NUM_SPARES+1)));
+            --sel(k) <= fail;
+            sel(k) <= std_logic_vector(to_unsigned(fail,log2c(NUM_SPARES+1)));
+            --exit;   
         else 
-            --cnt <= cnt;
             sel(k) <= sel(k);    
         end if;    
     end loop;

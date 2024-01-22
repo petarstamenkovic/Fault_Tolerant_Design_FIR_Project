@@ -3,17 +3,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
 use work.variable_io_package.all;
 
+
 entity voter is
-      generic(NUM_INPUT : integer := 3;           -- This is a parameter N (N modular redundance)
-              output_data_width : integer := 24); -- This is a paramter for a width of FIR output
+      generic(FIR_MODULAR : natural := 3);
       Port (
-            in1  : in IO_ARRAY(NUM_INPUT-1 downto 0);
-            out1 : out std_logic_vector(output_data_width-1 downto 0) 
+            in1  : in IO_ARRAY(FIR_MODULAR-1 downto 0);
+            out1 : out std_logic_vector(output_width-1 downto 0) 
        );
 end voter;
 
 architecture Behavioral of voter is
-    type cnt_array is array (0 to NUM_INPUT) of integer;
+    type cnt_array is array (0 to FIR_MODULAR) of integer;
     signal cnt : cnt_array := (others => 0);
 begin
 
@@ -22,8 +22,8 @@ begin
 process(in1)
     variable cnt_v : cnt_array := (others => 0);
 begin
-for i in 0 to NUM_INPUT-1 loop
-    for j in 0 to NUM_INPUT-1 loop
+for i in 0 to FIR_MODULAR-1 loop
+    for j in 0 to FIR_MODULAR-1 loop
         if(i /= j) then 
             if(in1(i) = in1(j)) then
                 cnt_v(i) := cnt_v(i) + 1;   -- cnt_v should also be in else branch
@@ -44,7 +44,7 @@ process(cnt)
     variable max : integer := cnt(0);
     variable index : integer := 0;
 begin
-   for k in 1 to NUM_INPUT loop
+   for k in 1 to FIR_MODULAR loop
         if(cnt(k) > max) then 
             max := cnt(k);
             index := k;
