@@ -12,12 +12,12 @@ set_property board_part digilentinc.com:zybo-z7-10:part0:1.0 [current_project]
 # Ukljucivanje svih izvornih i simulacionih fajlova u projekat
 
 add_files -norecurse ../dut/top.vhd
+add_files -norecurse ../dut/redundancy.vhd
 add_files -norecurse ../dut/comparator.vhd
 add_files -norecurse ../dut/switch_logic.vhd
 add_files -norecurse ../dut/variable_io_package.vhd
 add_files -norecurse ../dut/voter.vhd
-add_files -norecurse ../dut/fir_param.vhd
-add_files -norecurse ../dut/mac.vhd
+#add_files -norecurse ../dut/fir_param.vhd
 add_files -norecurse ../dut/mac.vhd
 add_files -norecurse ../dut/txt_util.vhd
 add_files -norecurse ../dut/util_pkg.vhd

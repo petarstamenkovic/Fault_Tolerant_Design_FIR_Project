@@ -4,8 +4,8 @@ use work.variable_io_package.all;
 
 entity comparator is
       Port ( 
-                in1  : in IO_ARRAY(NUM_MODULAR-1 downto 0); 
-                vot_out : in std_logic_vector(output_width-1 downto 0);
+                in1  : in MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0); 
+                vot_out : in std_logic_vector(2*input_width-1 downto 0);
                 comp_out : out std_logic_vector(NUM_MODULAR-1 downto 0) 
             );
 end comparator;

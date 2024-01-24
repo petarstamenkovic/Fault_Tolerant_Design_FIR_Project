@@ -9,10 +9,10 @@ generic(NUM_SPARES : integer := 3;
         NUM_MODULAR : integer := 4;   
         output_data_width : integer := 24); 
        Port (
-            in1  : in IO_ARRAY(NUM_MODULAR-1 downto 0);
-            in2  : in IO_ARRAY(NUM_SPARES-1 downto 0);
+            in1  : in MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
+            in2  : in MAC_OUT_ARRAY(NUM_SPARES-1 downto 0);
             comp_out : in std_logic_vector(NUM_MODULAR-1 downto 0);
-            out1 : out IO_ARRAY(NUM_MODULAR-1 downto 0) 
+            out1 : out MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0) 
         );
 end switch_logic;
 

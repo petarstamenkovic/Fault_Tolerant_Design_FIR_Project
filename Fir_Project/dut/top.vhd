@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use work.util_pkg.all;
 use work.variable_io_package.all;
+use IEEE.NUMERIC_STD.all;
 
 entity top is
       Port (
@@ -10,82 +11,53 @@ entity top is
             coef_addr_i : in std_logic_vector(log2c(FIR_ORDER+1)-1 downto 0);
             coef_i : in STD_LOGIC_VECTOR (input_width-1 downto 0);
             data_i : in STD_LOGIC_VECTOR(input_width-1 downto 0);
-            --data_i : in DATA_IN (FIR_MODULAR-1 downto 0);
             data_o : out std_logic_vector(output_width-1 downto 0)
             );
 end top;
 
 architecture Behavioral of top is
-    signal fir_out : IO_ARRAY(FIR_MODULAR-1 downto 0);
-    signal switch_in_original : IO_ARRAY(NUM_MODULAR-1 downto 0);
-    signal switch_in_spares : IO_ARRAY(NUM_SPARES-1 downto 0);
-    signal switch_out : IO_ARRAY(NUM_MODULAR-1 downto 0);
-    signal comp_out_t : std_logic_vector(NUM_MODULAR-1 downto 0); 
-    signal data_out : std_logic_vector(output_width-1 downto 0);
+    --type std_2d is array (FIR_ORDER-1 downto 0) of std_logic_vector(2*input_width-1 downto 0);
+    signal mac_inter : MAC_OUT_ARRAY(FIR_ORDER downto 0);
+    --type coef_t is array (FIR_ORDER downto 0) of std_logic_vector(input_width-1 downto 0);
+    signal b_s : coef_t(FIR_ORDER downto 0); 
 begin
 
-fir_generation : 
-for i in 0 to FIR_MODULAR-1 generate
-    generation1:
-    entity work.fir_param
+
+process(clk_i)
+begin
+     if(rising_edge(clk_i))then
+          if we_i = '1' then
+             b_s(to_integer(unsigned(coef_addr_i))) <= coef_i;
+          end if;
+     end if;
+end process;
+    
+first_section: 
+    entity work.mac(behavioral)
+    port map(clk_i=>clk_i,
+             u_i=>data_i,
+             b_i=>b_s(FIR_ORDER),
+             sec_i=>(others=>'0'),
+             sec_o=>mac_inter(0));
+             
+redundancy_generation:
+for i in 1 to FIR_ORDER-1 generate
+    fir_creation: 
+    entity work.redundancy
     port map(
-            clk_i => clk_i,
-            we_i => we_i,
-            coef_addr_i => coef_addr_i,
-            coef_i => coef_i,
-            data_i => data_i,
-            --data_i => data_i(i),
-            data_o => fir_out(i)
+        clk_i => clk_i,
+        u_i => data_i, 
+        b_i => b_s(FIR_ORDER-i),
+        sec_i => mac_inter(i-1),
+        sec_o => mac_inter(i)
     );
 end generate;
 
-redundancy_voters_generation_originals:
-for j in 0 to NUM_MODULAR-1 generate
-    generation2:
-    entity work.voter
-    generic map(FIR_MODULAR=>FIR_MODULAR)
-    port map(
-        in1 => fir_out,
-        out1 => switch_in_original(j)
-    );
-end generate;
-
-redundancy_voters_generation_spares:
-for s in 0 to NUM_SPARES-1 generate
-    generation3:
-    entity work.voter
-    generic map(FIR_MODULAR=>FIR_MODULAR)
-    port map(
-        in1 => fir_out,
-        out1 => switch_in_spares(s)
-    );
-end generate;
-
-swtich_logic: 
-entity work.switch_logic
-    port map(
-           in1 => switch_in_original,
-           in2 => switch_in_spares,
-           comp_out => comp_out_t,
-           out1 => switch_out 
-    );
-    
-comparator:
-entity work.comparator
-    port map(
-            in1 => switch_out,
-            vot_out => data_out,
-            comp_out => comp_out_t
-    );   
-    
-main_voter: 
-entity work.voter
-    generic map(FIR_MODULAR=>NUM_MODULAR)
-    port map(
-            in1 => switch_out,
-            out1 => data_out
-    );     
-    
-    data_o <= data_out;
+process(clk_i)
+begin 
+    if(rising_edge(clk_i)) then 
+        data_o <= mac_inter(FIR_ORDER-1)(2*input_width-2 downto 2*input_width-output_width-1);
+    end if;
+end process;
     
 end Behavioral;
