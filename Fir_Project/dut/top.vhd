@@ -33,7 +33,7 @@ begin
 end process;
     
 first_section: 
-    entity work.mac(behavioral)
+    entity work.redundancy(behavioral)
     port map(clk_i=>clk_i,
              u_i=>data_i,
              b_i=>b_s(FIR_ORDER),

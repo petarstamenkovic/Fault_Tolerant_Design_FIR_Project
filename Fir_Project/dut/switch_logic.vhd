@@ -5,9 +5,9 @@ use work.util_pkg.all;
 use work.variable_io_package.all;
 
 entity switch_logic is
-generic(NUM_SPARES : integer := 3;
-        NUM_MODULAR : integer := 4;   
-        output_data_width : integer := 24); 
+--generic(NUM_SPARES : integer := 3;
+--        NUM_MODULAR : integer := 4;   
+--        output_data_width : integer := 24); 
        Port (
             in1  : in MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
             in2  : in MAC_OUT_ARRAY(NUM_SPARES-1 downto 0);

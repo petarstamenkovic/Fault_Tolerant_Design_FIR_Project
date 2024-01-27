@@ -81,6 +81,11 @@ entity work.voter
             out1 => data_out
     ); 
     
-    sec_o <= data_out;
-
+forwarding_to_out: 
+process(clk_i)
+begin    
+    if(rising_edge(clk_i)) then 
+        sec_o <= data_out;
+    end if;    
+end process;
 end Behavioral;
