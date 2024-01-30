@@ -19,6 +19,13 @@ architecture Behavioral of redundancy is
     signal comp_out_t : std_logic_vector(NUM_MODULAR-1 downto 0);
     signal switch_out : MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
     signal data_out : std_logic_vector(2*input_width-1 downto 0);
+    
+    ---- Protecting the redundant components ----
+    attribute dont_touch : string;
+    attribute dont_touch of mac_out : signal is "true";
+    attribute dont_touch of switch_in_original : signal is "true";
+    attribute dont_touch of switch_in_spares : signal is "true";
+    attribute dont_touch of switch_out : signal is "true";
 begin
 
 mac_instances : 

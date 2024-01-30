@@ -44,19 +44,20 @@ end process;
 
 failing_mechanism:
 process(comp_out)
-    variable fail : integer := 0; 
+    --variable fail : integer := 0; 
 begin 
-   -- sel <= (others => (others => '0'));
+    --sel <= (others => (others => '0'));
+    sel <= sel;
+    fail <= fail;
+    --fail <= (others => '0');
     for k in 0 to NUM_MODULAR-1 loop
     --sel(k) <= sel(k); 
         if(comp_out(k) = '1') then
-            fail := fail + 1;
-            --fail <= std_logic_vector(unsigned(fail) + TO_UNSIGNED(1,log2c(NUM_SPARES+1)));
-            --sel(k) <= fail;
-            sel(k) <= std_logic_vector(to_unsigned(fail,log2c(NUM_SPARES+1)));
-            --exit;   
-        else 
-            sel(k) <= sel(k);    
+            --fail := fail + 1;
+            fail <= std_logic_vector(unsigned(fail) + TO_UNSIGNED(1,log2c(NUM_SPARES+1)));
+            sel(k) <= fail;
+            --sel(k) <= std_logic_vector(to_unsigned(fail,log2c(NUM_SPARES+1)));
+            exit;      
         end if;    
     end loop;
 

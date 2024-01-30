@@ -14,6 +14,8 @@ end mac;
 
 architecture Behavioral of mac is
     signal reg_s : STD_LOGIC_VECTOR (2*input_width-1 downto 0):=(others=>'0');
+    attribute use_dsp : string;
+    attribute use_dsp of behavioral : architecture is "yes";
 begin
     process(clk_i)
     begin
