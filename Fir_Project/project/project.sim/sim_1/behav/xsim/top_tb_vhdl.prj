@@ -1,0 +1,15 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../dut/util_pkg.vhd" \
+"../../../../../dut/variable_io_package.vhd" \
+"../../../../../dut/comparator.vhd" \
+"../../../../../dut/mac.vhd" \
+"../../../../../dut/voter.vhd" \
+"../../../../../dut/switch_logic.vhd" \
+"../../../../../dut/redundancy.vhd" \
+"../../../../../dut/txt_util.vhd" \
+"../../../../../dut/top.vhd" \
+"../../../../../verif/top_tb.vhd" \
+
+# Do not sort compile order
+nosort

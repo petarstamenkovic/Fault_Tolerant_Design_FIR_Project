@@ -7,8 +7,8 @@ use work.util_pkg;
 package variable_io_package is 
     constant output_width : natural := 24;  -- Output signal width
     constant input_width : natural := 24;   -- Input signal width
-    constant NUM_SPARES : natural := 3;     -- Number of spare voters
-    constant NUM_MODULAR : natural := 4;    -- Number of original voters
+    constant NUM_SPARES : natural := 2;     -- Number of spare voters
+    constant NUM_MODULAR : natural := 3;    -- Number of original voters
     constant MAC_MODULAR : natural := 3;    -- Number of fir modules(fir redundancy)
     constant FIR_ORDER : natural := 5;      -- Order of a single fir module
     type IO_ARRAY is array (integer range <>) of std_logic_vector(output_width-1 downto 0);

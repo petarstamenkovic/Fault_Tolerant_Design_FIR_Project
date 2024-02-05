@@ -13,12 +13,12 @@ entity redundancy is
 end redundancy;
 
 architecture Behavioral of redundancy is
-    signal mac_out : MAC_OUT_ARRAY(MAC_MODULAR-1 downto 0);
-    signal switch_in_original : MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
-    signal switch_in_spares: MAC_OUT_ARRAY(NUM_SPARES-1 downto 0);
-    signal comp_out_t : std_logic_vector(NUM_MODULAR-1 downto 0);
-    signal switch_out : MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
-    signal data_out : std_logic_vector(2*input_width-1 downto 0);
+    signal mac_out : MAC_OUT_ARRAY(MAC_MODULAR-1 downto 0) := (others => (others => '0'));
+    signal switch_in_original : MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0) := (others => (others => '0'));
+    signal switch_in_spares: MAC_OUT_ARRAY(NUM_SPARES-1 downto 0) := (others => (others => '0'));
+    signal comp_out_t : std_logic_vector(NUM_MODULAR-1 downto 0) := (others => '0');
+    signal switch_out : MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0) := (others => (others => '0'));
+    signal data_out : std_logic_vector(2*input_width-1 downto 0) := (others => '0');
     
     ---- Protecting the redundant components ----
     attribute dont_touch : string;
@@ -66,6 +66,7 @@ end generate;
 swtich_logic: 
 entity work.switch_logic
     port map(
+           clk => clk_i,
            in1 => switch_in_original,
            in2 => switch_in_spares,
            comp_out => comp_out_t,
@@ -88,11 +89,11 @@ entity work.voter
             out1 => data_out
     ); 
     
-forwarding_to_out: 
-process(clk_i)
-begin    
-    if(rising_edge(clk_i)) then 
+--forwarding_to_out: 
+--process(clk_i)
+--begin    
+--    if(rising_edge(clk_i)) then 
         sec_o <= data_out;
-    end if;    
-end process;
+--    end if;    
+--end process;
 end Behavioral;

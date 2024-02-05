@@ -9,6 +9,7 @@ entity switch_logic is
 --        NUM_MODULAR : integer := 4;   
 --        output_data_width : integer := 24); 
        Port (
+            clk  : in std_logic;
             in1  : in MAC_OUT_ARRAY(NUM_MODULAR-1 downto 0);
             in2  : in MAC_OUT_ARRAY(NUM_SPARES-1 downto 0);
             comp_out : in std_logic_vector(NUM_MODULAR-1 downto 0);
@@ -21,7 +22,7 @@ architecture Behavioral of switch_logic is
     signal sel_zero : std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0):= (others => '0');
     type SEL_TYPE is array(NUM_MODULAR-1 downto 0) of std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0);
     signal sel : SEL_TYPE := (others => (others => '0'));
-    signal fail : std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0):= (others => '0');
+    signal fail : std_logic_vector(log2c(NUM_SPARES+1)-1 downto 0):= (std_logic_vector(to_unsigned(1, log2c(NUM_SPARES+1))));
 begin
 
 mux_generation:
@@ -35,7 +36,6 @@ begin
                 for j in 1 to NUM_SPARES loop
                 if(sel(i) = std_logic_vector(to_unsigned(j,2))) then
                     out1(i) <= in2(j-1);
-                    --exit;
                 end if;
                 end loop;
            end if;     
@@ -43,24 +43,22 @@ begin
 end process;
 
 failing_mechanism:
-process(comp_out)
-    --variable fail : integer := 0; 
+process(clk)
 begin 
-    --sel <= (others => (others => '0'));
-    sel <= sel;
-    fail <= fail;
-    --fail <= (others => '0');
-    for k in 0 to NUM_MODULAR-1 loop
-    --sel(k) <= sel(k); 
-        if(comp_out(k) = '1') then
-            --fail := fail + 1;
-            fail <= std_logic_vector(unsigned(fail) + TO_UNSIGNED(1,log2c(NUM_SPARES+1)));
-            sel(k) <= fail;
-            --sel(k) <= std_logic_vector(to_unsigned(fail,log2c(NUM_SPARES+1)));
-            exit;      
+    if(rising_edge(clk) or comp_out /= zero_vector) then
+        --if(comp_out /= zero_vector) then
+            for k in 0 to NUM_MODULAR-1 loop
+                if(comp_out(k) = '1') then
+                    sel(k) <= fail;
+                    fail <= std_logic_vector(unsigned(fail) + TO_UNSIGNED(1,log2c(NUM_SPARES+1)));
+                    exit;
+                end if;          
+             end loop;
+        else 
+            sel <= sel;
+            fail <= fail;
         end if;    
-    end loop;
-
+     --end if;   
 end process;
 
 end Behavioral;

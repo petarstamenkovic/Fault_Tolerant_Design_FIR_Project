@@ -14,9 +14,9 @@ end top_tb;
 architecture Behavioral of top_tb is
     constant period : time := 20 ns;
     signal clk_i_s : std_logic;
-    file input_test_vector : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project\files\input.txt";
-    file output_check_vector : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project\files\expected.txt";
-    file input_coef : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project\files\coef.txt";
+    file input_test_vector : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project2\files\input.txt";
+    file output_check_vector : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project2\files\expected.txt";
+    file input_coef : text open read_mode is "C:\Users\Pera\Desktop\Fir_Project2\files\coef.txt";
     signal data_i_s : std_logic_vector(input_width-1 downto 0);
     signal data_o_s : std_logic_vector(output_width-1 downto 0);
     signal coef_addr_i_s : std_logic_vector(log2c(FIR_ORDER)-1 downto 0);
@@ -70,19 +70,19 @@ clk_process:
         report "verification done!" severity failure;
     end process;
     
---    check_process:
---    process
---        variable check_v : line;
---        variable tmp : std_logic_vector(output_width-1 downto 0);
---    begin
---        wait until start_check = '1';
---        while(true)loop
---            wait until rising_edge(clk_i_s);
---            readline(output_check_vector,check_v);
---            tmp := to_std_logic_vector(string(check_v));
---            if(abs(signed(tmp) - signed(data_o_s)) > "000000000000000000000111")then
---                report "result mismatch!" severity failure;
---            end if;
---        end loop;
---    end process;
+    check_process:
+    process
+        variable check_v : line;
+        variable tmp : std_logic_vector(output_width-1 downto 0);
+    begin
+        wait until start_check = '1';
+        while(true)loop
+            wait until rising_edge(clk_i_s);
+            readline(output_check_vector,check_v);
+            tmp := to_std_logic_vector(string(check_v));
+            if(abs(signed(tmp) - signed(data_o_s)) > "000000000000000000000111")then
+                report "result mismatch!" severity failure;
+            end if;
+        end loop;
+    end process;
 end Behavioral;

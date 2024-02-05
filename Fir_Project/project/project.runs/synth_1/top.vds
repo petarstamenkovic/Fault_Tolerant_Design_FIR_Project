@@ -1,0 +1,301 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Feb  5 17:34:33 2024
+# Process ID: 7844
+# Current directory: C:/Users/Pera/Desktop/Fir_Project2/project/project.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Users/Pera/Desktop/Fir_Project2/project/project.runs/synth_1/top.vds
+# Journal file: C:/Users/Pera/Desktop/Fir_Project2/project/project.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1126.707 ; gain = 0.000
+Command: synth_design -top top -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1364
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1142.324 ; gain = 15.617
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/Pera/Desktop/Fir_Project2/dut/top.vhd:32]
+INFO: [Synth 8-638] synthesizing module 'redundancy' [C:/Users/Pera/Desktop/Fir_Project2/dut/redundancy.vhd:15]
+INFO: [Synth 8-638] synthesizing module 'mac' [C:/Users/Pera/Desktop/Fir_Project2/dut/mac.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'mac' (1#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/mac.vhd:15]
+INFO: [Synth 8-638] synthesizing module 'voter' [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:15]
+	Parameter MAC_MODULAR bound to: 3 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'voter' (2#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:15]
+INFO: [Synth 8-638] synthesizing module 'switch_logic' [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:20]
+WARNING: [Synth 8-614] signal 'comp_out' is read in the process but is not in the sensitivity list [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:45]
+WARNING: [Synth 8-614] signal 'zero_vector' is read in the process but is not in the sensitivity list [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:45]
+WARNING: [Synth 8-614] signal 'fail' is read in the process but is not in the sensitivity list [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:45]
+WARNING: [Synth 8-614] signal 'sel' is read in the process but is not in the sensitivity list [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'switch_logic' (3#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:20]
+INFO: [Synth 8-638] synthesizing module 'comparator' [C:/Users/Pera/Desktop/Fir_Project2/dut/comparator.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'comparator' (4#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/comparator.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'redundancy' (5#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/redundancy.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'top' (6#1) [C:/Users/Pera/Desktop/Fir_Project2/dut/top.vhd:32]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1196.527 ; gain = 69.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1196.527 ; gain = 69.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1196.527 ; gain = 69.820
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.497 . Memory (MB): peak = 1196.527 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Pera/Desktop/Fir_Project2/project/project.srcs/constrs_1/new/constraint.xdc]
+Finished Parsing XDC File [C:/Users/Pera/Desktop/Fir_Project2/project/project.srcs/constrs_1/new/constraint.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1329.535 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.423 . Memory (MB): peak = 1329.535 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1329.535 ; gain = 202.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1329.535 ; gain = 202.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1329.535 ; gain = 202.828
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'index_reg' [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:50]
+WARNING: [Synth 8-327] inferring latch for variable 'max_reg' [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:48]
+WARNING: [Synth 8-327] inferring latch for variable 'cnt_v_reg[1]' [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:29]
+WARNING: [Synth 8-327] inferring latch for variable 'cnt_v_reg[2]' [C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd:29]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_reg[2]' [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:52]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_reg[1]' [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:52]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_reg[0]' [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:52]
+WARNING: [Synth 8-327] inferring latch for variable 'fail_reg' [C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd:52]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1329.535 ; gain = 202.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 144   
+	   2 Input    2 Bit       Adders := 6     
++---Registers : 
+	               48 Bit    Registers := 18    
+	               24 Bit    Registers := 7     
++---Muxes : 
+	   3 Input   48 Bit        Muxes := 36    
+	   4 Input   48 Bit        Muxes := 18    
+	   2 Input   32 Bit        Muxes := 288   
+	   3 Input   32 Bit        Muxes := 36    
+	   2 Input    1 Bit        Muxes := 162   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP sec_o0, operation Mode is: A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o, operation Mode is: C'+A:B.
+DSP Report: register reg_s_reg is absorbed into DSP sec_o.
+DSP Report: operator sec_o is absorbed into DSP sec_o.
+DSP Report: Generating DSP sec_o0, operation Mode is: A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o, operation Mode is: C'+A:B.
+DSP Report: register reg_s_reg is absorbed into DSP sec_o.
+DSP Report: operator sec_o is absorbed into DSP sec_o.
+DSP Report: Generating DSP sec_o0, operation Mode is: A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: operator sec_o0 is absorbed into DSP sec_o0.
+DSP Report: Generating DSP sec_o, operation Mode is: C'+A:B.
+DSP Report: register reg_s_reg is absorbed into DSP sec_o.
+DSP Report: operator sec_o is absorbed into DSP sec_o.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 1329.535 ; gain = 202.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping	Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mac         | A*B            | 24     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | (PCIN>>17)+A*B | 24     | 7      | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | C'+A:B         | 30     | 18     | 48     | -      | 48     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|mac         | A*B            | 24     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | (PCIN>>17)+A*B | 24     | 7      | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | C'+A:B         | 30     | 18     | 48     | -      | 48     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|mac         | A*B            | 24     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | (PCIN>>17)+A*B | 24     | 7      | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mac         | C'+A:B         | 30     | 18     | 48     | -      | 48     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:31 ; elapsed = 00:01:35 . Memory (MB): peak = 1375.266 ; gain = 248.559
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:15 ; elapsed = 00:02:20 . Memory (MB): peak = 1512.625 ; gain = 385.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:44 ; elapsed = 00:02:50 . Memory (MB): peak = 1520.617 ; gain = 393.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:55 ; elapsed = 00:03:01 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:55 ; elapsed = 00:03:01 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:02 ; elapsed = 00:03:09 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:02 ; elapsed = 00:03:09 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:03 ; elapsed = 00:03:10 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:03 ; elapsed = 00:03:10 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     8|
+|2     |CARRY4  |  1944|
+|3     |DSP48E1 |    54|
+|5     |LUT1    |    12|
+|6     |LUT2    |   228|
+|7     |LUT3    |  5196|
+|8     |LUT4    |  2814|
+|9     |LUT5    |  3168|
+|10    |LUT6    |  2628|
+|11    |FDRE    |    24|
+|12    |LD      |  3504|
+|13    |LDCP    |    36|
+|14    |LDP     |    36|
+|15    |IBUF    |    53|
+|16    |OBUF    |    24|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:03 ; elapsed = 00:03:10 . Memory (MB): peak = 1529.000 ; gain = 402.293
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:41 ; elapsed = 00:03:01 . Memory (MB): peak = 1529.000 ; gain = 269.285
+Synthesis Optimization Complete : Time (s): cpu = 00:03:03 ; elapsed = 00:03:11 . Memory (MB): peak = 1529.000 ; gain = 402.293
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.882 . Memory (MB): peak = 1545.039 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5574 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1545.039 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 3576 instances were transformed.
+  LD => LDCE: 3504 instances
+  LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 36 instances
+  LDP => LDPE: 36 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+26 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:28 ; elapsed = 00:03:40 . Memory (MB): peak = 1545.039 ; gain = 418.332
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Pera/Desktop/Fir_Project2/project/project.runs/synth_1/top.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 1545.039 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Feb  5 17:38:32 2024...

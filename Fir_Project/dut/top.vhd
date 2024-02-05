@@ -31,9 +31,9 @@ end top;
 
 architecture Behavioral of top is
     --type std_2d is array (FIR_ORDER-1 downto 0) of std_logic_vector(2*input_width-1 downto 0);
-    signal mac_inter : MAC_OUT_ARRAY(FIR_ORDER downto 0);
+    signal mac_inter : MAC_OUT_ARRAY(FIR_ORDER downto 0) := (others => (others => '0'));
     --type coef_t is array (FIR_ORDER downto 0) of std_logic_vector(input_width-1 downto 0);
-    signal b_s : coef_t(FIR_ORDER downto 0); 
+    signal b_s : coef_t(FIR_ORDER downto 0) := (others => (others => '0')); 
 begin
 
 
@@ -69,10 +69,10 @@ for i in 1 to FIR_ORDER generate
     );
 end generate;
 
-process(clk_i)
+process(clk_i,mac_inter)
 begin 
     if(rising_edge(clk_i)) then 
-        data_o <= mac_inter(FIR_ORDER-1)(2*input_width-2 downto 2*input_width-output_width-1);
+        data_o <= mac_inter(FIR_ORDER)(2*input_width-2 downto 2*input_width-output_width-1);
     end if;
 end process;
     
