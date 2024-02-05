@@ -1,7 +1,26 @@
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 1adf3cb810604d7db4170120ff7b0bcf --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 4927d48f83014bd4a272edc623af885e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.txt_util
+Compiling package xil_defaultlib.util_pkg
+Compiling package xil_defaultlib.variable_io_package
+Compiling architecture behavioral of entity xil_defaultlib.mac [mac_default]
+Compiling architecture behavioral of entity xil_defaultlib.voter [voter_default]
+Compiling architecture behavioral of entity xil_defaultlib.switch_logic [switch_logic_default]
+Compiling architecture behavioral of entity xil_defaultlib.comparator [comparator_default]
+Compiling architecture behavioral of entity xil_defaultlib.redundancy [redundancy_default]
+Compiling architecture behavioral of entity xil_defaultlib.top [top_default]
+Compiling architecture behavioral of entity xil_defaultlib.top_tb
+Built simulation snapshot top_tb_behav

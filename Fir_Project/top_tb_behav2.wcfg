@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="top_tb" />
+            <top_module name="txt_util" />
+            <top_module name="util_pkg" />
+            <top_module name="variable_io_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="291"></NameColumnWidth>
+      <ValueColumnWidth column_width="136"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/top_tb/clk_i_s" type="logic">
+      <obj_property name="ElementShortName">clk_i_s</obj_property>
+      <obj_property name="ObjectShortName">clk_i_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/data_i_s" type="array">
+      <obj_property name="ElementShortName">data_i_s[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i_s[23:0]</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-0.002000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.002000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/data_o_s" type="array">
+      <obj_property name="ElementShortName">data_o_s[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_o_s[23:0]</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-0.002000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.002000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/coef_addr_i_s" type="array">
+      <obj_property name="ElementShortName">coef_addr_i_s[2:0]</obj_property>
+      <obj_property name="ObjectShortName">coef_addr_i_s[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/coef_i_s" type="array">
+      <obj_property name="ElementShortName">coef_i_s[23:0]</obj_property>
+      <obj_property name="ObjectShortName">coef_i_s[23:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/switch_in_original" type="array">
+      <obj_property name="ElementShortName">switch_in_original[2:0][47:0]</obj_property>
+      <obj_property name="ObjectShortName">switch_in_original[2:0][47:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/switch_in_spares" type="array">
+      <obj_property name="ElementShortName">switch_in_spares[1:0][47:0]</obj_property>
+      <obj_property name="ObjectShortName">switch_in_spares[1:0][47:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/comp_out_t" type="array">
+      <obj_property name="ElementShortName">comp_out_t[2:0]</obj_property>
+      <obj_property name="ObjectShortName">comp_out_t[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/switch_out" type="array">
+      <obj_property name="ElementShortName">switch_out[2:0][47:0]</obj_property>
+      <obj_property name="ObjectShortName">switch_out[2:0][47:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[47:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[47:0]</obj_property>
+   </wvobject>
+</wave_config>

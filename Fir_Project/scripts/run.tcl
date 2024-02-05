@@ -24,6 +24,10 @@ add_files -norecurse ../dut/util_pkg.vhd
 
 update_compile_order -fileset sources_1
 
+# Ukljucivanje constraint fajlova
+add_files -fileset constrs_1 -norecurse ../constraint/constraint.xdc
+update_compile_order -fileset sources_1
+
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
 add_files -fileset sim_1 -norecurse ../verif/top_tb.vhd
 add_files -fileset sim_1 -norecurse ../verif/tb.vhd

@@ -14,14 +14,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="35000001fs"></ZoomEndTime>
-      <Cursor1Time time="35000000fs"></Cursor1Time>
+      <ZoomEndTime time="1000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="291"></NameColumnWidth>
-      <ValueColumnWidth column_width="141"></ValueColumnWidth>
+      <ValueColumnWidth column_width="136"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="7" />
    <wvobject fp_name="/top_tb/clk_i_s" type="logic">
       <obj_property name="ElementShortName">clk_i_s</obj_property>
       <obj_property name="ObjectShortName">clk_i_s</obj_property>
@@ -57,11 +57,6 @@
       <obj_property name="radix_fractionWidth">24</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/uut_top_module/first_section/mac_out" type="array">
-      <obj_property name="ElementShortName">mac_out[2:0][47:0]</obj_property>
-      <obj_property name="ObjectShortName">mac_out[2:0][47:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/coef_addr_i_s" type="array">
       <obj_property name="ElementShortName">coef_addr_i_s[2:0]</obj_property>
       <obj_property name="ObjectShortName">coef_addr_i_s[2:0]</obj_property>
@@ -71,16 +66,13 @@
       <obj_property name="ObjectShortName">coef_i_s[23:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/we_i_s" type="logic">
-      <obj_property name="ElementShortName">we_i_s</obj_property>
-      <obj_property name="ObjectShortName">we_i_s</obj_property>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/mac_out" type="array">
+      <obj_property name="ElementShortName">mac_out[2:0][47:0]</obj_property>
+      <obj_property name="ObjectShortName">mac_out[2:0][47:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/start_check" type="logic">
-      <obj_property name="ElementShortName">start_check</obj_property>
-      <obj_property name="ObjectShortName">start_check</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/period" type="other">
-      <obj_property name="ElementShortName">period</obj_property>
-      <obj_property name="ObjectShortName">period</obj_property>
+   <wvobject fp_name="/top_tb/uut_top_module/\redundancy_generation(4)\/fir_creation/sec_o" type="array">
+      <obj_property name="ElementShortName">sec_o[47:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_o[47:0]</obj_property>
    </wvobject>
 </wave_config>

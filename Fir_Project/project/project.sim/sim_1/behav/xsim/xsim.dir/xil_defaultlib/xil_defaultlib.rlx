@@ -11,4 +11,4 @@ C:/Users/Pera/Desktop/Fir_Project2/dut/txt_util.vhd,1483463286,vhdl,C:/Users/Per
 C:/Users/Pera/Desktop/Fir_Project2/dut/util_pkg.vhd,1485806310,vhdl,C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/top.vhd;C:/Users/Pera/Desktop/Fir_Project2/verif/top_tb.vhd,,,util_pkg,,,,,,,,
 C:/Users/Pera/Desktop/Fir_Project2/dut/variable_io_package.vhd,1706956629,vhdl,C:/Users/Pera/Desktop/Fir_Project2/dut/comparator.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/mac.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/redundancy.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/switch_logic.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/top.vhd;C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd;C:/Users/Pera/Desktop/Fir_Project2/verif/top_tb.vhd,,,variable_io_package,,,,,,,,
 C:/Users/Pera/Desktop/Fir_Project2/dut/voter.vhd,1707146080,vhdl,C:/Users/Pera/Desktop/Fir_Project2/dut/redundancy.vhd,,,voter,,,,,,,,
-C:/Users/Pera/Desktop/Fir_Project2/verif/top_tb.vhd,1707150455,vhdl,,,,top_tb,,,,,,,,
+C:/Users/Pera/Desktop/Fir_Project2/verif/top_tb.vhd,1707163848,vhdl,,,,top_tb,,,,,,,,
