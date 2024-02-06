@@ -6,20 +6,6 @@ use IEEE.NUMERIC_STD.all;
 
 entity top is
       Port (
-            
---            -- AXI Stream Slave signals 
---            s_axis_tdata : in std_logic_vector(input_width-1 downto 0);
---            s_axis_tvalid : in std_logic;
---            s_axis_last : in std_logic;
---            s_axis_tready : out std_logic;
-      
---            -- AXI Stream Master signals
---            m_axis_tdata : out std_logic_vector(output_width-1 downto 0);
---            m_axis_tvalid : out std_logic;
---            m_axi_tready : in std_logic;
---            m_axi_tlast : out std_logic;
-            
-            -- System interface signals 
             clk_i : in std_logic;
             we_i :  in std_logic;
             coef_addr_i : in std_logic_vector(log2c(FIR_ORDER+1)-1 downto 0);
